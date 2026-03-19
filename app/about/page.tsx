@@ -81,7 +81,7 @@ export default function AboutPage() {
             </div>
             <div>
               <h2 className="font-heading font-semibold text-xl" style={{ color: 'var(--text-primary)' }}>Jayashree Mishra Deb</h2>
-              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Lead Sales &amp; Commercial DTAI &middot; Genpact</p>
+              <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>Associate Vice President &amp; Commercial DTAI &middot; Genpact</p>
             </div>
           </div>
 
