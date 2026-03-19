@@ -215,7 +215,7 @@ export default function HomePage() {
             <AuthorCard
               initials="JM"
               name="Jayashree Mishra Deb"
-              title="Lead Sales & Commercial DTAI"
+              title="Associate Vice President, Data Tech & AI, Genpact"
               org="Genpact"
               color="signal"
               credentials={[
