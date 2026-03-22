@@ -66,6 +66,24 @@ export default function AboutPage() {
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
+
+          <a
+            href="https://www.linkedin.com/in/deb-dipanjan/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-5 text-sm transition-opacity hover:opacity-70"
+            style={{ color: 'var(--accent)' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <span>Connect on LinkedIn</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 4l4 4-4 4" />
+            </svg>
+          </a>
         </div>
 
         <div className="divider mb-16" />
@@ -109,6 +127,24 @@ export default function AboutPage() {
               <span key={t} className="tag">{t}</span>
             ))}
           </div>
+
+          <a
+            href="https://www.linkedin.com/in/mishra-jayashree/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-5 text-sm transition-opacity hover:opacity-70"
+            style={{ color: 'var(--signal)' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            <span>Connect on LinkedIn</span>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 4l4 4-4 4" />
+            </svg>
+          </a>
         </div>
 
         <div className="divider mb-16" />
