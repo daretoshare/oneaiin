@@ -20,6 +20,23 @@
   --signal: #047857;
   --signal-muted: rgba(4, 120, 87, 0.08);
   --divider: #e7e5e4;
+
+  /* Knowledge Base Category Colors */
+  --kb-regulatory: #6366f1;
+  --kb-regulatory-muted: rgba(99, 102, 241, 0.08);
+  --kb-regulatory-border: rgba(99, 102, 241, 0.2);
+
+  --kb-governance: #f59e0b;
+  --kb-governance-muted: rgba(245, 158, 11, 0.08);
+  --kb-governance-border: rgba(245, 158, 11, 0.2);
+
+  --kb-tools: #06b6d4;
+  --kb-tools-muted: rgba(6, 182, 212, 0.08);
+  --kb-tools-border: rgba(6, 182, 212, 0.2);
+
+  --kb-cases: #e11d48;
+  --kb-cases-muted: rgba(225, 29, 72, 0.08);
+  --kb-cases-border: rgba(225, 29, 72, 0.2);
 }
 
 /* ─── Dark theme ─── */
@@ -38,6 +55,23 @@
   --signal: #34d399;
   --signal-muted: rgba(52, 211, 153, 0.08);
   --divider: #292524;
+
+  /* Knowledge Base Category Colors (Dark) */
+  --kb-regulatory: #818cf8;
+  --kb-regulatory-muted: rgba(129, 140, 248, 0.08);
+  --kb-regulatory-border: rgba(129, 140, 248, 0.15);
+
+  --kb-governance: #fbbf24;
+  --kb-governance-muted: rgba(251, 191, 36, 0.08);
+  --kb-governance-border: rgba(251, 191, 36, 0.15);
+
+  --kb-tools: #22d3ee;
+  --kb-tools-muted: rgba(34, 211, 238, 0.08);
+  --kb-tools-border: rgba(34, 211, 238, 0.15);
+
+  --kb-cases: #fb7185;
+  --kb-cases-muted: rgba(251, 113, 133, 0.08);
+  --kb-cases-border: rgba(251, 113, 133, 0.15);
 }
 
 @layer base {

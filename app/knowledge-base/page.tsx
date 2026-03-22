@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { getAllKBItems, getAllCategories, getCategoryMetadata, getCategoryColor, type KBCategory } from '@/app/lib/knowledge-base';
 
 export const metadata: Metadata = {
   title: 'Knowledge Base — one.ai.in',
@@ -6,32 +8,14 @@ export const metadata: Metadata = {
 };
 
 export default function KnowledgeBasePage() {
-  const categories = [
-    {
-      title: 'Regulatory Frameworks',
-      desc: 'SR 11-7, EU AI Act, RBI/SEBI circulars, FDA AI guidance — summaries and analysis.',
-      tags: ['SR 11-7', 'EU AI Act', 'RBI', 'SEBI', 'FDA'],
-      color: 'accent' as const,
-    },
-    {
-      title: 'AI Governance Models',
-      desc: 'Enterprise AI governance playbooks, model risk management frameworks, and evaluation methodologies.',
-      tags: ['Model Risk', 'NLI Evaluation', 'Explainability', 'LLM Governance'],
-      color: 'accent' as const,
-    },
-    {
-      title: 'Tools & Platforms',
-      desc: 'Reviews and comparisons of open-source and commercial AI governance, MLOps, and evaluation tools.',
-      tags: ['MLOps', 'LangChain', 'Evaluation', 'Monitoring'],
-      color: 'signal' as const,
-    },
-    {
-      title: 'Industry Case Studies',
-      desc: 'Real-world examples of AI governance implementation across BFSI and Healthcare.',
-      tags: ['Banking', 'Pharma', 'Insurance', 'GCCs'],
-      color: 'signal' as const,
-    },
-  ];
+  const allItems = getAllKBItems();
+  const categories = getAllCategories();
+
+  // Group items by category
+  const itemsByCategory = categories.reduce((acc, cat) => {
+    acc[cat] = allItems.filter((item) => item.category === cat);
+    return acc;
+  }, {} as Record<KBCategory, typeof allItems>);
 
   return (
     <section className="pt-28 pb-20 md:pt-36">
@@ -46,30 +30,81 @@ export default function KnowledgeBasePage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4 mb-12">
-          {categories.map((cat) => (
-            <div key={cat.title} className="card">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: cat.color === 'accent' ? 'var(--accent)' : 'var(--signal)' }} />
-                <h3 className="font-heading font-semibold text-base" style={{ color: 'var(--text-primary)' }}>{cat.title}</h3>
+        {categories.map((category) => {
+          const meta = getCategoryMetadata(category);
+          const items = itemsByCategory[category];
+
+          if (items.length === 0) return null;
+
+          return (
+            <div key={category} className="mb-12">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: getCategoryColor(category) }} />
+                  <h2 className="font-heading font-semibold text-xl" style={{ color: 'var(--text-primary)' }}>
+                    {meta.title}
+                  </h2>
+                </div>
+                <Link
+                  href={`/knowledge-base/category/${category}`}
+                  className="text-xs font-mono uppercase tracking-wider transition-colors"
+                  style={{ color: 'var(--text-muted)' }}
+                >
+                  View All →
+                </Link>
               </div>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>{cat.desc}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {cat.tags.map((t) => (<span key={t} className="tag">{t}</span>))}
+
+              <div className="space-y-4">
+                {items.map((item) => (
+                  <Link key={item.slug} href={`/knowledge-base/item/${item.slug}`}>
+                    <div className="card">
+                      <div className="flex items-start gap-3">
+                        <span
+                          className="w-1 h-1 rounded-full mt-2 flex-shrink-0"
+                          style={{ background: getCategoryColor(category) }}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-heading font-semibold text-base mb-1.5" style={{ color: 'var(--text-primary)' }}>
+                            {item.title}
+                          </h3>
+                          <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
+                            {item.excerpt}
+                          </p>
+                          <div className="flex items-center gap-3 text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
+                            <span>{item.author}</span>
+                            <span>•</span>
+                            <span>{item.date}</span>
+                            <span>•</span>
+                            <span>{item.readTime}</span>
+                          </div>
+                          {item.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5 mt-3">
+                              {item.tags.map((tag) => (
+                                <span key={tag} className="tag">{tag}</span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
 
-        <div className="card text-center py-14">
-          <h3 className="font-heading font-semibold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
-            Knowledge Base Launching Q2 2026
-          </h3>
-          <p className="text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
-            We&apos;re curating high-quality resources across all categories. Subscribe to get notified.
-          </p>
-          <a href="/#newsletter" className="btn-primary inline-flex">Subscribe for Updates</a>
-        </div>
+        {allItems.length === 0 && (
+          <div className="card text-center py-14">
+            <h3 className="font-heading font-semibold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
+              Knowledge Base Coming Soon
+            </h3>
+            <p className="text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
+              We&apos;re curating high-quality resources across all categories. Subscribe to get notified.
+            </p>
+            <a href="/#newsletter" className="btn-primary inline-flex">Subscribe for Updates</a>
+          </div>
+        )}
       </div>
     </section>
   );

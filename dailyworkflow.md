@@ -1,7 +1,10 @@
 Step 1: Create the dev branch
-bashcd one-ai-site
+bash
+cd one-ai-site
 git checkout -b dev
+
 This creates a new branch called dev and switches you to it. Everything from main is copied over. You're now working on dev.
+
 Step 2: Verify which branch you're on
 bashgit branch
 ```
@@ -10,17 +13,27 @@ You'll see something like:
 ```
   main
 * dev
+
 The * shows your current branch.
 Step 3: Make changes, commit, push
+
 Work on whatever you want — edit files, add articles, change styles. Then:
-bashgit add .
+bash
+
+git add .
 git commit -m "Describe what you changed"
 git push origin dev
+
 The first time you push dev, Git creates the branch on GitHub. After that, git push is enough.
+
+
 Step 4: Preview on Vercel (automatic)
 Vercel automatically creates a Preview Deployment for every non-main branch push. After you push dev, go to your Vercel dashboard → Deployments tab. You'll see a new deployment with a preview URL like one-ai-in-abc123.vercel.app. Use this to test your changes without affecting the live site.
+
+
 Step 5: When you're happy, merge into main
 You have two ways to do this:
+
 Option A: Merge via command line (simpler)
 bash# Switch back to main
 git checkout main

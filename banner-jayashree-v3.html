@@ -1,0 +1,94 @@
+<html>
+<head>
+<style>
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #060e1a; width: 1584px; height: 396px; overflow: hidden; position: relative; }
+.grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(30,191,105,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30,191,105,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.glow {
+  position: absolute; top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(30,191,105,0.06) 0%, transparent 70%);
+}
+.content {
+  position: relative; z-index: 2;
+  height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 0 60px;
+}
+.tagline {
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-size: 62px; color: #e8edf5; line-height: 1.05;
+  margin-bottom: 14px;
+}
+.tagline .accent { color: #1ebf69; font-style: italic; }
+.subtitle {
+  font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 17px; color: #8b9bc0; font-weight: 400;
+  letter-spacing: 0.01em; margin-bottom: 18px;
+}
+.tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+.tag {
+  padding: 4px 12px;
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 11px; font-weight: 500; border-radius: 4px;
+  border: 1px solid rgba(30,191,105,0.15);
+  color: #5a6d96; background: rgba(30,191,105,0.04);
+}
+.bottom-bar {
+  display: flex; align-items: center; gap: 16px;
+}
+.logo {
+  font-family: 'Outfit', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 18px; color: #e8edf5;
+}
+.logo .b { color: #3391ff; }
+.logo .m { color: #5a6d96; }
+.sep { width: 1px; height: 16px; background: rgba(30,191,105,0.2); }
+.site-tag {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 10px; color: #1ebf69;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.hex { position: absolute; opacity: 0.03; }
+.hex1 { top: 20px; right: 80px; }
+.hex2 { bottom: 30px; left: 60px; }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <svg class="hex hex1" width="100" height="100" viewBox="0 0 100 100">
+    <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#1ebf69" stroke-width="1"/>
+    <polygon points="50,25 75,37.5 75,62.5 50,75 25,62.5 25,37.5" fill="none" stroke="#1ebf69" stroke-width="0.6"/>
+  </svg>
+  <svg class="hex hex2" width="70" height="70" viewBox="0 0 100 100">
+    <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="#3391ff" stroke-width="1"/>
+  </svg>
+  <div class="content">
+    <div class="tagline">Enterprise AI. <span class="accent">Understood.</span></div>
+    <div class="subtitle">Healthcare &amp; Pharma AI &middot; GenAI &middot; Commercial Analytics &middot; RWE &middot; CoE Strategy</div>
+    <div class="tags">
+      <span class="tag">Novo Nordisk</span>
+      <span class="tag">6-Country CoE</span>
+      <span class="tag">18+ Years</span>
+      <span class="tag">~$500M Impact</span>
+      <span class="tag">Life Sciences</span>
+    </div>
+    <div class="bottom-bar">
+      <div class="logo">one<span class="b">.ai</span><span class="m">.in</span></div>
+      <div class="sep"></div>
+      <div class="site-tag">Knowledge Platform</div>
+    </div>
+  </div>
+</body>
+</html>
