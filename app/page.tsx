@@ -153,7 +153,7 @@ export default function HomePage() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 animate-fade-up"
             style={{ borderTop: '1px solid var(--divider)', animationDelay: '0.3s' }}
           >
-            <Stat value="25+" label="Years in AI" />
+            <Stat value="45+" label="Years in AI" />
             <Stat value="7" label="US Patents" />
             <Stat value="$500M+" label="Value Delivered" />
             <Stat value="2" label="Regulated Industries" />
