@@ -78,8 +78,8 @@ export default function Navigation() {
             </button>
 
             {/* Subscribe CTA */}
-            <a
-              href="#newsletter"
+            <Link
+              href="/#newsletter"
               className="hidden md:inline-flex px-4 py-1.5 font-heading text-sm font-semibold rounded-md transition-colors"
               style={{
                 color: 'var(--accent)',
@@ -88,7 +88,7 @@ export default function Navigation() {
               }}
             >
               Subscribe
-            </a>
+            </Link>
 
             {/* Mobile toggle */}
             <button
