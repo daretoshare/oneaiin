@@ -220,6 +220,15 @@
     margin: 2.5rem 0;
   }
   .prose-article em { color: var(--text-secondary); }
+
+  /* ─── beehiiv Newsletter Embed ─── */
+  .beehiiv-embed-container {
+    width: 100%;
+  }
+
+  .beehiiv-embed-container iframe {
+    border-radius: 8px !important;
+  }
 }
 
 /* ─── Scrollbar ─── */

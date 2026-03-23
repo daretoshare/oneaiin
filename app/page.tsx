@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Script from 'next/script';
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
@@ -47,6 +48,7 @@ function AuthorCard({
   name,
   title,
   org,
+  email,
   credentials,
   domains,
   color,
@@ -55,6 +57,7 @@ function AuthorCard({
   name: string;
   title: string;
   org: string;
+  email: string;
   credentials: string[];
   domains: string[];
   color: 'accent' | 'signal';
@@ -74,6 +77,17 @@ function AuthorCard({
           <p className="font-heading font-semibold text-base" style={{ color: 'var(--text-primary)' }}>{name}</p>
           <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{title}</p>
           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>{org}</p>
+          <a
+            href={`mailto:${email}`}
+            className="text-xs inline-flex items-center gap-1 mt-1 transition-opacity hover:opacity-70"
+            style={{ color: dotColor }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            {email}
+          </a>
         </div>
       </div>
 
@@ -139,7 +153,7 @@ export default function HomePage() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 animate-fade-up"
             style={{ borderTop: '1px solid var(--divider)', animationDelay: '0.3s' }}
           >
-            <Stat value="25+" label="Years in AI" />
+            <Stat value="45+" label="Years in AI" />
             <Stat value="7" label="US Patents" />
             <Stat value="$500M+" label="Value Delivered" />
             <Stat value="2" label="Regulated Industries" />
@@ -202,6 +216,7 @@ export default function HomePage() {
               name="Dipanjan Deb"
               title="Associate Partner, KDN-AI"
               org="KPMG"
+              email="dipanjan@one.ai.in"
               color="accent"
               credentials={[
                 'Executive MBA — IIM Bangalore',
@@ -217,6 +232,7 @@ export default function HomePage() {
               name="Jayashree Mishra Deb"
               title="Associate Vice President, Data Tech & AI, Genpact"
               org="Genpact"
+              email="jay@one.ai.in"
               color="signal"
               credentials={[
                 'MBA Finance — ICFAI University',
@@ -280,20 +296,33 @@ export default function HomePage() {
           </p>
 
           <div className="card">
-            <div className="flex flex-col sm:flex-row gap-3 max-w-sm mx-auto">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-3 rounded-lg text-sm font-body outline-none transition-colors"
+            {/* beehiiv Newsletter Embed */}
+            <Script
+              src="https://subscribe-forms.beehiiv.com/embed.js"
+              strategy="lazyOnload"
+            />
+            <div
+              className="beehiiv-embed-container"
+              style={{ maxWidth: '468px', margin: '0 auto' }}
+            >
+              <iframe
+                src="https://subscribe-forms.beehiiv.com/5d1b91ba-03da-4eee-94ed-71e191556be4"
+                className="beehiiv-embed"
+                data-test-id="beehiiv-embed"
+                frameBorder="0"
+                scrolling="no"
                 style={{
-                  background: 'var(--bg-sunken)',
-                  border: '1px solid var(--border)',
-                  color: 'var(--text-primary)',
+                  width: '468px',
+                  maxWidth: '100%',
+                  height: '106px',
+                  margin: '0',
+                  borderRadius: '8px',
+                  backgroundColor: 'transparent',
+                  border: 'none',
                 }}
               />
-              <button className="btn-primary whitespace-nowrap">Subscribe</button>
             </div>
-            <p className="mt-3 text-xs" style={{ color: 'var(--text-muted)' }}>
+            <p className="mt-3 text-xs text-center" style={{ color: 'var(--text-muted)' }}>
               Free. Monthly. Unsubscribe anytime.
             </p>
           </div>

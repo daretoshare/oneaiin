@@ -5,17 +5,33 @@ export default function Footer() {
     <footer style={{ borderTop: '1px solid var(--divider)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
+          <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-3">
               <span className="font-heading font-bold text-base" style={{ color: 'var(--text-primary)' }}>
                 one<span style={{ color: 'var(--accent)' }}>.ai</span>
                 <span style={{ color: 'var(--text-muted)' }}>.in</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed max-w-sm" style={{ color: 'var(--text-secondary)' }}>
+            <p className="text-sm leading-relaxed max-w-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
               A knowledge platform for AI governance, model risk management,
               and responsible AI adoption across regulated industries.
             </p>
+            <div>
+              <h4 className="font-heading font-semibold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--text-muted)' }}>
+                Contact
+              </h4>
+              <a
+                href="mailto:namaste@one.ai.in"
+                className="inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
+                style={{ color: 'var(--accent)' }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>namaste@one.ai.in</span>
+              </a>
+            </div>
           </div>
 
           <div>
@@ -35,11 +51,11 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div className="md:col-span-2">
             <h4 className="font-heading font-semibold text-xs uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
               Focus Areas
             </h4>
-            <div className="space-y-2.5 text-sm" style={{ color: 'var(--text-secondary)' }}>
+            <div className="grid grid-cols-2 gap-2.5 text-sm" style={{ color: 'var(--text-secondary)' }}>
               <p>BFSI AI Governance</p>
               <p>Healthcare &amp; Pharma AI</p>
               <p>Model Risk Management</p>
