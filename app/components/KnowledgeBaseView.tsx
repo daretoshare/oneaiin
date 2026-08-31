@@ -4,8 +4,11 @@ import { useMemo } from 'react';
 import Link from 'next/link';
 import type { KnowledgeBaseMeta } from '@/app/lib/knowledge-base';
 import { getCategoryMetadata, getCategoryColor, type KBCategory } from '@/app/lib/kb-categories';
+import { applyKBFilters, getAvailableFilterOptions } from '@/app/lib/kb-filters';
 import TagFilter from './TagFilter';
+import KBFilters from './KBFilters';
 import { useTagsParam } from './useTagsParam';
+import { useKBFilters } from './useKBFilters';
 
 export default function KnowledgeBaseView({
   allItems,
@@ -15,16 +18,21 @@ export default function KnowledgeBaseView({
   categories: KBCategory[];
 }) {
   const { tags: activeTags, toggleTag, clear } = useTagsParam();
+  const { filters, clearFilters } = useKBFilters();
 
   const allTags = useMemo(
     () => Array.from(new Set(allItems.flatMap((i) => i.tags))).sort(),
     [allItems]
   );
 
-  const filtered = useMemo(() => {
+  const tagFiltered = useMemo(() => {
     if (activeTags.length === 0) return allItems;
     return allItems.filter((item) => activeTags.every((tag) => item.tags.includes(tag)));
   }, [allItems, activeTags]);
+
+  const options = useMemo(() => getAvailableFilterOptions(tagFiltered), [tagFiltered]);
+
+  const filtered = useMemo(() => applyKBFilters(tagFiltered, filters), [tagFiltered, filters]);
 
   const itemsByCategory = useMemo(
     () =>
@@ -40,9 +48,15 @@ export default function KnowledgeBaseView({
 
   const hasResults = filtered.length > 0;
 
+  const clearAll = () => {
+    clear();
+    clearFilters();
+  };
+
   return (
     <>
-      <div className="mb-10">
+      <div className="mb-10 space-y-4">
+        <KBFilters categories={categories} options={options} />
         <TagFilter tags={allTags} activeTags={activeTags} onToggle={toggleTag} />
       </div>
 
@@ -136,10 +150,10 @@ export default function KnowledgeBaseView({
             No resources match
           </h3>
           <p className="text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
-            No knowledge base items have all the selected tags. Try removing a filter.
+            No knowledge base items match the selected filters or tags. Try removing a filter.
           </p>
-          <button type="button" onClick={clear} className="btn-outline inline-flex">
-            Clear filters
+          <button type="button" onClick={clearAll} className="btn-outline inline-flex">
+            Clear all filters
           </button>
         </div>
       )}
