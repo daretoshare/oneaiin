@@ -21,7 +21,8 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 | 2026-08-31 | Tier 1.2 — Tag-based filtering (SCRUM-17) | ✅ Done, branch `feat/scrums-17-tag-filtering` pushed |
 | 2026-08-31 | Tier 1.3 — Related content (SCRUM-18) | ✅ Done, branch `feat/scrums-18-related` pushed |
 | 2026-08-31 | Tier 1.4 — JSON-LD structured data (SCRUM-19) | ✅ Done, branch `feat/scrums-19-jsonld` pushed |
-| 2026-08-31 | Tier 1.5 — Sitemap & robots (SCRUM-20) | ▶️ Next |
+| 2026-08-31 | Tier 1.5 — Sitemap & robots (SCRUM-20) | ✅ Done, branch `feat/scrums-20-sitemap` pushed |
+| 2026-08-31 | Tier 1.6 — Favicon & OpenGraph (SCRUM-21) | ▶️ Next |
 
 ---
 
@@ -221,8 +222,8 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 4. ✅ Implement **SCRUM-17 — Tag-based filtering (plan 1.2)** — **Done**
 5. ✅ Implement **SCRUM-18 — Related content (plan 1.3)** — **Done**
 6. ✅ Implement **SCRUM-19 — JSON-LD structured data (plan 1.4)** — **Done**
-7. ▶️ Implement **SCRUM-20 — Sitemap & robots.txt (plan 1.5)** — Next
-8. Continue Tier 1 SEO + Search: SCRUM-21 (favicon/OG)
+7. ✅ Implement **SCRUM-20 — Sitemap & robots.txt (plan 1.5)** — **Done**
+8. ▶️ Implement **SCRUM-21 — Favicon & OpenGraph (plan 1.6)** — Next
 9. Add Vitest (INFRA-1) before building interactive features
 10. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
 
