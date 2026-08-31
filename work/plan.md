@@ -22,7 +22,8 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 | 2026-08-31 | Tier 1.3 — Related content (SCRUM-18) | ✅ Done, branch `feat/scrums-18-related` pushed |
 | 2026-08-31 | Tier 1.4 — JSON-LD structured data (SCRUM-19) | ✅ Done, branch `feat/scrums-19-jsonld` pushed |
 | 2026-08-31 | Tier 1.5 — Sitemap & robots (SCRUM-20) | ✅ Done, branch `feat/scrums-20-sitemap` pushed |
-| 2026-08-31 | Tier 1.6 — Favicon & OpenGraph (SCRUM-21) | ▶️ Next |
+| 2026-08-31 | Tier 1.6 — Favicon & OpenGraph (SCRUM-21) | ✅ Done, branch `feat/scrums-21-og-favicon` pushed |
+| 2026-08-31 | Tier 1 complete — all SEO & Discovery stories done (SCRUM-16…21) | ✅ |
 
 ---
 
@@ -223,9 +224,10 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 5. ✅ Implement **SCRUM-18 — Related content (plan 1.3)** — **Done**
 6. ✅ Implement **SCRUM-19 — JSON-LD structured data (plan 1.4)** — **Done**
 7. ✅ Implement **SCRUM-20 — Sitemap & robots.txt (plan 1.5)** — **Done**
-8. ▶️ Implement **SCRUM-21 — Favicon & OpenGraph (plan 1.6)** — Next
-9. Add Vitest (INFRA-1) before building interactive features
-10. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
+8. ✅ Implement **SCRUM-21 — Favicon & OpenGraph (plan 1.6)** — **Done** — *Tier 1 (SEO & Discovery) complete*
+9. ▶️ Add test framework **[INFRA-1] Vitest** — Next (prerequisite for interactive features)
+10. Then Tier 2 engagement: interactive KB filters (2.1), newsletter/author pages
+11. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
 
 ---
 
