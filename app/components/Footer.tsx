@@ -6,7 +6,15 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
-            <Link href="/" className="inline-block mb-3">
+            <Link href="/" className="inline-flex items-center gap-2.5 mb-3" aria-label="one.ai.in home">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/favicon.svg"
+                alt="one.ai.in logo"
+                width={24}
+                height={24}
+                className="rounded-md flex-shrink-0"
+              />
               <span
                 className="font-heading font-bold text-base"
                 style={{ color: 'var(--text-primary)' }}

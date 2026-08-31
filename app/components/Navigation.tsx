@@ -39,7 +39,15 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="one.ai.in home">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/favicon.svg"
+              alt="one.ai.in logo"
+              width={26}
+              height={26}
+              className="rounded-md flex-shrink-0"
+            />
             <span
               className="font-heading font-bold text-base"
               style={{ color: 'var(--text-primary)' }}
