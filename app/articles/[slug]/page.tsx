@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation';
 import { getArticle, getAllSlugs, getRelatedArticles, markdownToHtml } from '@/app/lib/articles';
 import Link from 'next/link';
+import JsonLd from '@/app/components/JsonLd';
 import RelatedItems from '@/app/components/RelatedItems';
+import { SITE_URL, SITE_NAME } from '@/app/lib/site';
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -29,8 +31,25 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
     color: r.domain === 'BFSI' ? 'var(--accent)' : 'var(--signal)',
   }));
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    dateModified: article.date,
+    keywords: article.tags.join(', '),
+    author: { '@type': 'Person', name: article.author },
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/articles/${article.slug}`,
+    },
+  };
+
   return (
     <section className="pt-28 pb-20 md:pt-36">
+      <JsonLd data={articleJsonLd} />
       <div className="max-w-3xl mx-auto px-6">
         <Link
           href="/articles"

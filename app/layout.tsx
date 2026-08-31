@@ -3,7 +3,9 @@ import './globals.css';
 import Navigation from './components/Navigation';
 import Search from './components/Search';
 import Footer from './components/Footer';
+import JsonLd from './components/JsonLd';
 import { ThemeProvider } from './components/ThemeProvider';
+import { SITE_URL, SITE_NAME } from './lib/site';
 
 export const metadata: Metadata = {
   title: 'one.ai.in — Enterprise AI. Understood.',
@@ -33,6 +35,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className="min-h-screen antialiased">
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: SITE_NAME,
+            url: SITE_URL,
+            description:
+              'A knowledge platform for enterprise AI governance, model risk management, and responsible AI adoption.',
+          }}
+        />
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: SITE_NAME,
+            url: SITE_URL,
+          }}
+        />
         <ThemeProvider>
           <Navigation />
           <Search />
