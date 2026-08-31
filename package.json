@@ -9,7 +9,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "fuse.js": "^7.5.0",
@@ -19,8 +23,10 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@types/node": "^22",
     "@types/react": "^19",
+    "@vitest/coverage-v8": "^4.1.11",
     "autoprefixer": "^10.4.17",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.3.3",
@@ -28,6 +34,7 @@
     "postcss": "^8.4.33",
     "prettier": "^3.9.6",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.11"
   }
 }
