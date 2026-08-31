@@ -17,7 +17,8 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 | Date | Item | Status |
 |------|------|--------|
 | 2026-08-31 | INFRA-2 — ESLint + Prettier (SCRUM-22) | ✅ Done, branch `feat/eslint-prettier` pushed |
-| 2026-08-31 | Tier 1.1 — Client-side search Fuse.js (SCRUM-16) | ▶️ In Progress |
+| 2026-08-31 | Tier 1.1 — Client-side search Fuse.js (SCRUM-16) | ✅ Done, branch `feat/scrums-16-client-search` pushed |
+| 2026-08-31 | Tier 1.2 — Tag-based filtering (SCRUM-17) | ▶️ Next |
 
 ---
 
@@ -213,10 +214,11 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 
 1. ✅ Create Jira project with epics — **Done** (project `SCRUM`, epics SCRUM-10…14, stories SCRUM-16…22 in Sprint 0)
 2. ✅ Set up ESLint + Prettier (INFRA-2) as prerequisite for all feature work — **Done (SCRUM-22)**
-3. ▶️ Implement Tier 1: **SCRUM-16 — Add client-side search with Fuse.js (plan 1.1)** — In Progress
-4. Continue Tier 1 SEO + Search: SCRUM-17 (tag filtering), SCRUM-18 (related articles), SCRUM-19 (JSON-LD), SCRUM-20 (sitemap/robots), SCRUM-21 (favicon/OG)
-5. Add Vitest (INFRA-1) before building interactive features
-6. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
+3. ✅ Implement **SCRUM-16 — Add client-side search with Fuse.js (plan 1.1)** — **Done**
+4. ▶️ Implement **SCRUM-17 — Tag-based filtering (plan 1.2)** — Next
+5. Continue Tier 1 SEO + Search: SCRUM-18 (related articles), SCRUM-19 (JSON-LD), SCRUM-20 (sitemap/robots), SCRUM-21 (favicon/OG)
+6. Add Vitest (INFRA-1) before building interactive features
+7. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
 
 ---
 
