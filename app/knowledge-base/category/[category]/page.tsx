@@ -41,7 +41,14 @@ export default async function CategoryPage(props: { params: Promise<{ category: 
           className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors"
           style={{ color: 'var(--text-muted)' }}
         >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M10 4l-4 4 4 4" />
           </svg>
           Knowledge Base
@@ -49,12 +56,21 @@ export default async function CategoryPage(props: { params: Promise<{ category: 
 
         <div className="mb-12">
           <div className="flex items-center gap-2.5 mb-4">
-            <span className="w-1.5 h-1.5 rounded-full" style={{ background: getCategoryColor(typedCategory) }} />
-            <div className="font-mono text-xs uppercase tracking-wider" style={{ color: getCategoryColor(typedCategory) }}>
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: getCategoryColor(typedCategory) }}
+            />
+            <div
+              className="font-mono text-xs uppercase tracking-wider"
+              style={{ color: getCategoryColor(typedCategory) }}
+            >
               {meta.title}
             </div>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl mb-4" style={{ color: 'var(--text-primary)' }}>
+          <h1
+            className="font-display text-4xl md:text-5xl mb-4"
+            style={{ color: 'var(--text-primary)' }}
+          >
             {meta.title}
           </h1>
           <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
@@ -73,13 +89,22 @@ export default async function CategoryPage(props: { params: Promise<{ category: 
                       style={{ background: getCategoryColor(typedCategory) }}
                     />
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-heading font-semibold text-lg mb-1.5" style={{ color: 'var(--text-primary)' }}>
+                      <h3
+                        className="font-heading font-semibold text-lg mb-1.5"
+                        style={{ color: 'var(--text-primary)' }}
+                      >
                         {item.title}
                       </h3>
-                      <p className="text-sm leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
+                      <p
+                        className="text-sm leading-relaxed mb-3"
+                        style={{ color: 'var(--text-secondary)' }}
+                      >
                         {item.excerpt}
                       </p>
-                      <div className="flex items-center gap-3 text-xs font-mono" style={{ color: 'var(--text-muted)' }}>
+                      <div
+                        className="flex items-center gap-3 text-xs font-mono"
+                        style={{ color: 'var(--text-muted)' }}
+                      >
                         <span>{item.author}</span>
                         <span>•</span>
                         <span>{item.date}</span>
@@ -89,7 +114,9 @@ export default async function CategoryPage(props: { params: Promise<{ category: 
                       {item.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mt-3">
                           {item.tags.map((tag) => (
-                            <span key={tag} className="tag">{tag}</span>
+                            <span key={tag} className="tag">
+                              {tag}
+                            </span>
                           ))}
                         </div>
                       )}

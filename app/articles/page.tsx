@@ -15,11 +15,15 @@ export default function ArticlesPage() {
       <div className="max-w-3xl mx-auto px-6">
         <div className="mb-14">
           <div className="section-label mb-4">Articles</div>
-          <h1 className="font-display text-4xl md:text-5xl mb-4" style={{ color: 'var(--text-primary)' }}>
+          <h1
+            className="font-display text-4xl md:text-5xl mb-4"
+            style={{ color: 'var(--text-primary)' }}
+          >
             Practitioner Insights
           </h1>
           <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
-            Deep-dive articles on AI governance, model risk, and responsible AI — from the people who build and govern these systems.
+            Deep-dive articles on AI governance, model risk, and responsible AI — from the people
+            who build and govern these systems.
           </p>
         </div>
 
@@ -32,7 +36,10 @@ export default function ArticlesPage() {
                     className="w-1.5 h-1.5 rounded-full"
                     style={{ background: a.domain === 'BFSI' ? 'var(--accent)' : 'var(--signal)' }}
                   />
-                  <span className="font-mono text-[0.65rem] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+                  <span
+                    className="font-mono text-[0.65rem] uppercase tracking-wider"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
                     {a.domain} &middot; {a.date} &middot; {a.readTime}
                   </span>
                 </div>
@@ -42,22 +49,32 @@ export default function ArticlesPage() {
                 >
                   {a.title}
                 </h2>
-                <p className="text-sm leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                <p
+                  className="text-sm leading-relaxed mb-2"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
                   {a.excerpt}
                 </p>
-                <span className="text-xs" style={{ color: 'var(--text-muted)' }}>By {a.author}</span>
+                <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                  By {a.author}
+                </span>
               </Link>
             ))}
           </div>
         ) : (
           <div className="card text-center py-14">
-            <h3 className="font-heading font-semibold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3
+              className="font-heading font-semibold text-lg mb-2"
+              style={{ color: 'var(--text-primary)' }}
+            >
               Articles Coming Soon
             </h3>
             <p className="text-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
               Our first articles are in development. Subscribe to be notified.
             </p>
-            <a href="/#newsletter" className="btn-primary inline-flex">Subscribe for Updates</a>
+            <Link href="/#newsletter" className="btn-primary inline-flex">
+              Subscribe for Updates
+            </Link>
           </div>
         )}
       </div>

@@ -1,0 +1,13 @@
+.next
+node_modules
+out
+build
+package-lock.json
+*.tsbuildinfo
+public
+banner-*.html
+dailyworkflow.md
+CLAUDE.md
+README.md
+work/plan.md
+content

@@ -75,7 +75,9 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background: var(--bg);
     color: var(--text-primary);
@@ -107,7 +109,9 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 2rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
   }
   .card:hover {
     border-color: var(--border-hover);
@@ -133,8 +137,12 @@
     cursor: pointer;
     transition: opacity 0.2s;
   }
-  .dark .btn-primary { color: #0a0908; }
-  .btn-primary:hover { opacity: 0.9; }
+  .dark .btn-primary {
+    color: #0a0908;
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
 
   .btn-outline {
     display: inline-flex;
@@ -149,7 +157,9 @@
     border-radius: 8px;
     border: 1px solid var(--border);
     cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
+    transition:
+      border-color 0.2s,
+      background 0.2s;
   }
   .btn-outline:hover {
     border-color: var(--border-hover);
@@ -186,14 +196,20 @@
     line-height: 1.8;
     margin-bottom: 1.25rem;
   }
-  .prose-article ul, .prose-article ol {
+  .prose-article ul,
+  .prose-article ol {
     color: var(--text-secondary);
     line-height: 1.8;
     padding-left: 1.5rem;
     margin-bottom: 1.25rem;
   }
-  .prose-article li { margin-bottom: 0.5rem; }
-  .prose-article strong { color: var(--text-primary); font-weight: 500; }
+  .prose-article li {
+    margin-bottom: 0.5rem;
+  }
+  .prose-article strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
   .prose-article blockquote {
     border-left: 2px solid var(--accent);
     padding-left: 1.5rem;
@@ -219,7 +235,9 @@
     background: var(--divider);
     margin: 2.5rem 0;
   }
-  .prose-article em { color: var(--text-secondary); }
+  .prose-article em {
+    color: var(--text-secondary);
+  }
 
   /* ─── beehiiv Newsletter Embed ─── */
   .beehiiv-embed-container {
@@ -232,7 +250,16 @@
 }
 
 /* ─── Scrollbar ─── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}

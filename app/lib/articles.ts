@@ -62,7 +62,10 @@ export function getArticle(slug: string): Article | null {
 
 export function getAllSlugs(): string[] {
   if (!fs.existsSync(articlesDir)) return [];
-  return fs.readdirSync(articlesDir).filter((f) => f.endsWith('.md')).map((f) => f.replace(/\.md$/, ''));
+  return fs
+    .readdirSync(articlesDir)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => f.replace(/\.md$/, ''));
 }
 
 /** Minimal markdown → HTML (no external deps) */
@@ -81,7 +84,10 @@ export function markdownToHtml(md: string): string {
     // Inline code
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    .replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
 
   // Unordered lists
   html = html.replace(/(^- .+\n?)+/gm, (block) => {

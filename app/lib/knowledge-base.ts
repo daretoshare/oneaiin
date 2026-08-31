@@ -6,10 +6,7 @@ import { markdownToHtml } from './articles';
 const kbDir = path.join(process.cwd(), 'content/knowledge-base');
 
 export type KBCategory =
-  | 'regulatory-frameworks'
-  | 'ai-governance-models'
-  | 'tools-platforms'
-  | 'industry-case-studies';
+  'regulatory-frameworks' | 'ai-governance-models' | 'tools-platforms' | 'industry-case-studies';
 
 export interface KnowledgeBaseMeta {
   slug: string;

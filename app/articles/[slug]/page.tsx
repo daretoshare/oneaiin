@@ -28,7 +28,14 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
           className="inline-flex items-center gap-1.5 text-sm mb-8 transition-colors"
           style={{ color: 'var(--text-muted)' }}
         >
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M10 4l-4 4 4 4" />
           </svg>
           All Articles
@@ -39,16 +46,25 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
             className="w-1.5 h-1.5 rounded-full"
             style={{ background: article.domain === 'BFSI' ? 'var(--accent)' : 'var(--signal)' }}
           />
-          <span className="font-mono text-[0.65rem] uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
+          <span
+            className="font-mono text-[0.65rem] uppercase tracking-wider"
+            style={{ color: 'var(--text-muted)' }}
+          >
             {article.domain} &middot; {article.date} &middot; {article.readTime}
           </span>
         </div>
 
-        <h1 className="font-display text-3xl md:text-4xl leading-tight mb-4" style={{ color: 'var(--text-primary)' }}>
+        <h1
+          className="font-display text-3xl md:text-4xl leading-tight mb-4"
+          style={{ color: 'var(--text-primary)' }}
+        >
           {article.title}
         </h1>
 
-        <div className="flex items-center gap-2.5 mb-10 pb-8" style={{ borderBottom: '1px solid var(--divider)' }}>
+        <div
+          className="flex items-center gap-2.5 mb-10 pb-8"
+          style={{ borderBottom: '1px solid var(--divider)' }}
+        >
           <div
             className="w-9 h-9 rounded-md flex items-center justify-center font-display text-sm"
             style={{
@@ -56,9 +72,14 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
               color: article.domain === 'BFSI' ? 'var(--accent)' : 'var(--signal)',
             }}
           >
-            {article.author.split(' ').map((n: string) => n[0]).join('')}
+            {article.author
+              .split(' ')
+              .map((n: string) => n[0])
+              .join('')}
           </div>
-          <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{article.author}</span>
+          <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+            {article.author}
+          </span>
         </div>
 
         <div className="prose-article" dangerouslySetInnerHTML={{ __html: contentHtml }} />
@@ -66,7 +87,11 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
         {article.tags.length > 0 && (
           <div className="mt-10 pt-6" style={{ borderTop: '1px solid var(--divider)' }}>
             <div className="flex flex-wrap gap-1.5">
-              {article.tags.map((t: string) => (<span key={t} className="tag">{t}</span>))}
+              {article.tags.map((t: string) => (
+                <span key={t} className="tag">
+                  {t}
+                </span>
+              ))}
             </div>
           </div>
         )}

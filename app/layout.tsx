@@ -8,11 +8,19 @@ export const metadata: Metadata = {
   title: 'one.ai.in — Enterprise AI. Understood.',
   description:
     'A knowledge platform for AI governance, model risk management, and responsible AI adoption across BFSI and Healthcare.',
-  keywords: ['AI governance', 'model risk management', 'SR 11-7', 'enterprise AI', 'responsible AI', 'GenAI governance'],
+  keywords: [
+    'AI governance',
+    'model risk management',
+    'SR 11-7',
+    'enterprise AI',
+    'responsible AI',
+    'GenAI governance',
+  ],
   authors: [{ name: 'Dipanjan Deb' }, { name: 'Jayashree Mishra Deb' }],
   openGraph: {
     title: 'one.ai.in — Enterprise AI. Understood.',
-    description: 'AI governance, model risk management, and responsible AI adoption — from practitioners who built it at scale.',
+    description:
+      'AI governance, model risk management, and responsible AI adoption — from practitioners who built it at scale.',
     type: 'website',
     locale: 'en_IN',
     url: 'https://one.ai.in',

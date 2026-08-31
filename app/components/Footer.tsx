@@ -7,17 +7,26 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-3">
-              <span className="font-heading font-bold text-base" style={{ color: 'var(--text-primary)' }}>
+              <span
+                className="font-heading font-bold text-base"
+                style={{ color: 'var(--text-primary)' }}
+              >
                 one<span style={{ color: 'var(--accent)' }}>.ai</span>
                 <span style={{ color: 'var(--text-muted)' }}>.in</span>
               </span>
             </Link>
-            <p className="text-sm leading-relaxed max-w-sm mb-5" style={{ color: 'var(--text-secondary)' }}>
-              A knowledge platform for AI governance, model risk management,
-              and responsible AI adoption across regulated industries.
+            <p
+              className="text-sm leading-relaxed max-w-sm mb-5"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              A knowledge platform for AI governance, model risk management, and responsible AI
+              adoption across regulated industries.
             </p>
             <div>
-              <h4 className="font-heading font-semibold text-xs uppercase tracking-wider mb-3" style={{ color: 'var(--text-muted)' }}>
+              <h4
+                className="font-heading font-semibold text-xs uppercase tracking-wider mb-3"
+                style={{ color: 'var(--text-muted)' }}
+              >
                 Contact
               </h4>
               <a
@@ -25,7 +34,16 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
                 style={{ color: 'var(--accent)' }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
@@ -35,7 +53,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-xs uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
+            <h4
+              className="font-heading font-semibold text-xs uppercase tracking-wider mb-4"
+              style={{ color: 'var(--text-muted)' }}
+            >
               Platform
             </h4>
             <div className="space-y-2.5">
@@ -44,7 +65,12 @@ export default function Footer() {
                 { href: '/knowledge-base', label: 'Knowledge Base' },
                 { href: '/about', label: 'About' },
               ].map((l) => (
-                <Link key={l.href} href={l.href} className="block text-sm transition-colors" style={{ color: 'var(--text-secondary)' }}>
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="block text-sm transition-colors"
+                  style={{ color: 'var(--text-secondary)' }}
+                >
                   {l.label}
                 </Link>
               ))}
@@ -52,10 +78,16 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <h4 className="font-heading font-semibold text-xs uppercase tracking-wider mb-4" style={{ color: 'var(--text-muted)' }}>
+            <h4
+              className="font-heading font-semibold text-xs uppercase tracking-wider mb-4"
+              style={{ color: 'var(--text-muted)' }}
+            >
               Focus Areas
             </h4>
-            <div className="grid grid-cols-2 gap-2.5 text-sm" style={{ color: 'var(--text-secondary)' }}>
+            <div
+              className="grid grid-cols-2 gap-2.5 text-sm"
+              style={{ color: 'var(--text-secondary)' }}
+            >
               <p>BFSI AI Governance</p>
               <p>Healthcare &amp; Pharma AI</p>
               <p>Model Risk Management</p>
@@ -66,7 +98,10 @@ export default function Footer() {
 
         {/* Social Links */}
         <div className="mt-14 mb-8">
-          <h4 className="font-heading font-semibold text-xs uppercase tracking-wider text-center mb-4" style={{ color: 'var(--text-muted)' }}>
+          <h4
+            className="font-heading font-semibold text-xs uppercase tracking-wider text-center mb-4"
+            style={{ color: 'var(--text-muted)' }}
+          >
             Connect With Us
           </h4>
           <div className="flex flex-wrap justify-center gap-6">
@@ -78,7 +113,16 @@ export default function Footer() {
               className="flex flex-col items-center gap-2 transition-opacity hover:opacity-70"
               style={{ color: 'var(--text-muted)' }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
@@ -93,7 +137,16 @@ export default function Footer() {
               className="flex flex-col items-center gap-2 transition-opacity hover:opacity-70"
               style={{ color: 'var(--text-muted)' }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
@@ -108,15 +161,36 @@ export default function Footer() {
               className="flex flex-col items-center gap-2 transition-opacity hover:opacity-70"
               style={{ color: 'var(--text-muted)' }}
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
               </svg>
               <span className="text-xs font-mono">one.ai.in</span>
             </a>
-            <div className="flex flex-col items-center gap-2 cursor-not-allowed opacity-40" style={{ color: 'var(--text-muted)' }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <div
+              className="flex flex-col items-center gap-2 cursor-not-allowed opacity-40"
+              style={{ color: 'var(--text-muted)' }}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
               </svg>
@@ -130,11 +204,15 @@ export default function Footer() {
           style={{ borderTop: '1px solid var(--divider)' }}
         >
           <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
-            &copy; {new Date().getFullYear()} one.ai.in &mdash; Dipanjan Deb &amp; Jayashree Mishra Deb
+            &copy; {new Date().getFullYear()} one.ai.in &mdash; Dipanjan Deb &amp; Jayashree Mishra
+            Deb
           </p>
-          <p className="text-xs italic text-center md:text-right max-w-md" style={{ color: 'var(--text-muted)' }}>
-            Views expressed are personal and do not represent any employer or organization.
-            This is a non-commercial educational platform.
+          <p
+            className="text-xs italic text-center md:text-right max-w-md"
+            style={{ color: 'var(--text-muted)' }}
+          >
+            Views expressed are personal and do not represent any employer or organization. This is
+            a non-commercial educational platform.
           </p>
         </div>
       </div>

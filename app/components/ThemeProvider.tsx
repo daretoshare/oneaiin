@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useSyncExternalStore } from 'react';
 
 type Theme = 'light' | 'dark';
 const ThemeCtx = createContext<{ theme: Theme; toggle: () => void }>({
@@ -12,29 +12,48 @@ export function useTheme() {
   return useContext(ThemeCtx);
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
-  const [mounted, setMounted] = useState(false);
+const listeners = new Set<() => void>();
+let currentTheme: Theme =
+  typeof window === 'undefined'
+    ? 'dark'
+    : window.localStorage.getItem('theme') === 'light'
+      ? 'light'
+      : 'dark';
 
-  useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme | null;
-    const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    setTheme(saved || preferred);
-    setMounted(true);
-  }, []);
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
 
-  useEffect(() => {
-    if (!mounted) return;
+function getSnapshot() {
+  return currentTheme;
+}
+
+function getServerSnapshot(): Theme {
+  return 'dark';
+}
+
+function setExternalTheme(theme: Theme) {
+  currentTheme = theme;
+  if (typeof window !== 'undefined') {
+    window.localStorage.setItem('theme', theme);
     document.documentElement.classList.toggle('dark', theme === 'dark');
-    localStorage.setItem('theme', theme);
-  }, [theme, mounted]);
-
-  const toggle = () => setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
-
-  // Prevent flash — render children only after mounting
-  if (!mounted) {
-    return <div style={{ visibility: 'hidden' }}>{children}</div>;
   }
+  listeners.forEach((listener) => listener());
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, [theme]);
+
+  const toggle = useCallback(() => {
+    setExternalTheme(theme === 'dark' ? 'light' : 'dark');
+  }, [theme]);
 
   return <ThemeCtx.Provider value={{ theme, toggle }}>{children}</ThemeCtx.Provider>;
 }
