@@ -2,11 +2,17 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { markdownToHtml } from './articles';
+import {
+  type KBCategory,
+  CATEGORIES,
+  getCategoryMetadata,
+  getCategoryColor,
+  getAllCategories,
+} from './kb-categories';
+
+export type { KBCategory };
 
 const kbDir = path.join(process.cwd(), 'content/knowledge-base');
-
-export type KBCategory =
-  'regulatory-frameworks' | 'ai-governance-models' | 'tools-platforms' | 'industry-case-studies';
 
 export interface KnowledgeBaseMeta {
   slug: string;
@@ -47,29 +53,6 @@ export interface KnowledgeBaseMeta {
 export interface KnowledgeBaseItem extends KnowledgeBaseMeta {
   content: string;
 }
-
-const CATEGORIES = {
-  'regulatory-frameworks': {
-    title: 'Regulatory Frameworks',
-    description: 'Regulatory guidance and compliance frameworks',
-    colorVar: 'kb-regulatory',
-  },
-  'ai-governance-models': {
-    title: 'AI Governance Models',
-    description: 'Enterprise AI governance frameworks and best practices',
-    colorVar: 'kb-governance',
-  },
-  'tools-platforms': {
-    title: 'Tools & Platforms',
-    description: 'Evaluation of AI governance tools and platforms',
-    colorVar: 'kb-tools',
-  },
-  'industry-case-studies': {
-    title: 'Industry Case Studies',
-    description: 'Real-world AI governance implementations',
-    colorVar: 'kb-cases',
-  },
-};
 
 export function getAllKBItems(): KnowledgeBaseMeta[] {
   if (!fs.existsSync(kbDir)) return [];
@@ -163,16 +146,4 @@ export function getKBItemsByCategory(category: KBCategory): KnowledgeBaseMeta[] 
   return getAllKBItems().filter((item) => item.category === category);
 }
 
-export function getCategoryMetadata(category: KBCategory) {
-  return CATEGORIES[category];
-}
-
-export function getCategoryColor(category: KBCategory): string {
-  return `var(--${CATEGORIES[category].colorVar})`;
-}
-
-export function getAllCategories(): KBCategory[] {
-  return Object.keys(CATEGORIES) as KBCategory[];
-}
-
-export { markdownToHtml };
+export { getCategoryMetadata, getCategoryColor, getAllCategories, markdownToHtml };

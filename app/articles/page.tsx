@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllArticles } from '@/app/lib/articles';
+import ArticlesView from '@/app/components/ArticlesView';
 
 export const metadata: Metadata = {
   title: 'Articles — one.ai.in',
@@ -13,7 +14,7 @@ export default function ArticlesPage() {
   return (
     <section className="pt-28 pb-20 md:pt-36">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="mb-14">
+        <div className="mb-10">
           <div className="section-label mb-4">Articles</div>
           <h1
             className="font-display text-4xl md:text-5xl mb-4"
@@ -28,39 +29,7 @@ export default function ArticlesPage() {
         </div>
 
         {articles.length > 0 ? (
-          <div className="space-y-4">
-            {articles.map((a) => (
-              <Link key={a.slug} href={`/articles/${a.slug}`} className="block card group">
-                <div className="flex items-center gap-2 mb-2">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ background: a.domain === 'BFSI' ? 'var(--accent)' : 'var(--signal)' }}
-                  />
-                  <span
-                    className="font-mono text-[0.65rem] uppercase tracking-wider"
-                    style={{ color: 'var(--text-muted)' }}
-                  >
-                    {a.domain} &middot; {a.date} &middot; {a.readTime}
-                  </span>
-                </div>
-                <h2
-                  className="font-heading font-semibold text-lg mb-1.5 transition-colors"
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  {a.title}
-                </h2>
-                <p
-                  className="text-sm leading-relaxed mb-2"
-                  style={{ color: 'var(--text-secondary)' }}
-                >
-                  {a.excerpt}
-                </p>
-                <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
-                  By {a.author}
-                </span>
-              </Link>
-            ))}
-          </div>
+          <ArticlesView articles={articles} />
         ) : (
           <div className="card text-center py-14">
             <h3
