@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { rankRelated } from './related';
 
 const articlesDir = path.join(process.cwd(), 'content/articles');
 
@@ -66,6 +67,16 @@ export function getAllSlugs(): string[] {
     .readdirSync(articlesDir)
     .filter((f) => f.endsWith('.md'))
     .map((f) => f.replace(/\.md$/, ''));
+}
+
+/** Rank related articles by shared tags, with a same-domain bonus. */
+export function getRelatedArticles(current: ArticleMeta, count = 3): ArticleMeta[] {
+  return rankRelated(
+    current.tags,
+    getAllArticles().filter((a) => a.slug !== current.slug),
+    count,
+    (candidate) => (candidate.domain === current.domain ? 1 : 0)
+  );
 }
 
 /** Minimal markdown → HTML (no external deps) */

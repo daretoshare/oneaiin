@@ -9,6 +9,7 @@ import {
   getCategoryColor,
   getAllCategories,
 } from './kb-categories';
+import { rankRelated } from './related';
 
 export type { KBCategory };
 
@@ -144,6 +145,16 @@ export function getAllKBSlugs(): string[] {
 
 export function getKBItemsByCategory(category: KBCategory): KnowledgeBaseMeta[] {
   return getAllKBItems().filter((item) => item.category === category);
+}
+
+/** Rank related KB items by shared tags, with a same-category bonus. */
+export function getRelatedKBItems(current: KnowledgeBaseMeta, count = 3): KnowledgeBaseMeta[] {
+  return rankRelated(
+    current.tags,
+    getAllKBItems().filter((item) => item.slug !== current.slug),
+    count,
+    (candidate) => (candidate.category === current.category ? 1 : 0)
+  );
 }
 
 export { getCategoryMetadata, getCategoryColor, getAllCategories, markdownToHtml };

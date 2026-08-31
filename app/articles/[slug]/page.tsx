@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
-import { getArticle, getAllSlugs, markdownToHtml } from '@/app/lib/articles';
+import { getArticle, getAllSlugs, getRelatedArticles, markdownToHtml } from '@/app/lib/articles';
 import Link from 'next/link';
+import RelatedItems from '@/app/components/RelatedItems';
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -19,6 +20,14 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
   if (!article) notFound();
 
   const contentHtml = markdownToHtml(article.content);
+
+  const related = getRelatedArticles(article, 3).map((r) => ({
+    title: r.title,
+    excerpt: r.excerpt,
+    url: `/articles/${r.slug}`,
+    label: r.domain,
+    color: r.domain === 'BFSI' ? 'var(--accent)' : 'var(--signal)',
+  }));
 
   return (
     <section className="pt-28 pb-20 md:pt-36">
@@ -95,6 +104,8 @@ export default async function ArticlePage(props: { params: Promise<{ slug: strin
             </div>
           </div>
         )}
+
+        <RelatedItems items={related} />
       </div>
     </section>
   );

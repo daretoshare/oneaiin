@@ -3,10 +3,12 @@ import Link from 'next/link';
 import {
   getKBItem,
   getAllKBSlugs,
+  getRelatedKBItems,
   getCategoryMetadata,
   getCategoryColor,
   markdownToHtml,
 } from '@/app/lib/knowledge-base';
+import RelatedItems from '@/app/components/RelatedItems';
 
 export async function generateStaticParams() {
   return getAllKBSlugs().map((slug) => ({ slug }));
@@ -27,6 +29,14 @@ export default async function KBItemPage(props: { params: Promise<{ slug: string
   const contentHtml = markdownToHtml(item.content);
   const categoryMeta = getCategoryMetadata(item.category);
   const categoryColor = getCategoryColor(item.category);
+
+  const related = getRelatedKBItems(item, 3).map((r) => ({
+    title: r.title,
+    excerpt: r.excerpt,
+    url: `/knowledge-base/item/${r.slug}`,
+    label: getCategoryMetadata(r.category).title,
+    color: getCategoryColor(r.category),
+  }));
 
   return (
     <section className="pt-28 pb-20 md:pt-36">
@@ -319,6 +329,8 @@ export default async function KBItemPage(props: { params: Promise<{ slug: string
             </div>
           </div>
         )}
+
+        <RelatedItems items={related} />
       </div>
     </section>
   );
