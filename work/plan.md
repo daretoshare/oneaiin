@@ -26,6 +26,7 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 | 2026-08-31 | Tier 1 complete — all SEO & Discovery stories done (SCRUM-16…21) | ✅ |
 | 2026-08-31 | Created next tickets: SCRUM-23 (INFRA-1 tests), SCRUM-24 (plan 2.1 KB filters) | ✅ |
 | 2026-08-31 | INFRA-1 — Test suite (SCRUM-23) | ✅ Done, branch `feat/scrums-23-tests` pushed |
+| 2026-08-31 | Tier 2.1 — Interactive KB filters (SCRUM-24) | ✅ Done, branch `feat/scrums-24-kb-filters` pushed |
 
 ---
 
@@ -229,8 +230,9 @@ one.ai.in is a Next.js 15 knowledge platform for enterprise AI governance. The f
 8. ✅ Implement **SCRUM-21 — Favicon & OpenGraph (plan 1.6)** — **Done** — *Tier 1 (SEO & Discovery) complete*
 9. ✅ Created next tickets in Jira: **SCRUM-23** (INFRA-1 Vitest+Playwright) under SCRUM-14, **SCRUM-24** (plan 2.1 interactive KB filters) under SCRUM-11
 10. ✅ Implement **SCRUM-23 — Vitest + Playwright test suite (INFRA-1)** — **Done** (38 unit tests, 100% coverage on lib; 6 E2E tests)
-11. ▶️ Implement **SCRUM-24 — interactive KB filters (plan 2.1)** — Next, followed by Tier 2: glossary (2.2), newsletter archive (2.3), per-author RSS (2.4), reading progress (2.5)
-12. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
+11. ✅ Implement **SCRUM-24 — interactive KB filters (plan 2.1)** — **Done** (category/type/year/jurisdiction filters + shareable URL state)
+12. ▶️ Next Tier 2: glossary (2.2), newsletter archive (2.3), per-author RSS (2.4), reading progress (2.5)
+13. Add TypeScript strict mode (INFRA-3), Analytics (INFRA-4), Error tracking (INFRA-5)
 
 ---
 
