@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Navigation from './components/Navigation';
+import Search from './components/Search';
 import Footer from './components/Footer';
 import { ThemeProvider } from './components/ThemeProvider';
 
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen antialiased">
         <ThemeProvider>
           <Navigation />
+          <Search />
           <main>{children}</main>
           <Footer />
         </ThemeProvider>

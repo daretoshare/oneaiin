@@ -22,6 +22,10 @@ export default function Navigation() {
     { href: '/knowledge-base', label: 'Knowledge Base' },
   ];
 
+  const openSearch = () => {
+    window.dispatchEvent(new Event('oneai:open-search'));
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -61,6 +65,26 @@ export default function Navigation() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            {/* Search */}
+            <button
+              onClick={openSearch}
+              className="w-8 h-8 flex items-center justify-center rounded-md transition-colors"
+              style={{ color: 'var(--text-muted)', background: 'var(--bg-sunken)' }}
+              aria-label="Search"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </button>
+
             {/* Theme toggle */}
             <button
               onClick={toggle}

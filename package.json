@@ -12,6 +12,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "fuse.js": "^7.5.0",
     "gray-matter": "^4.0.3",
     "next": "^15.1.0",
     "react": "^19.0.0",
