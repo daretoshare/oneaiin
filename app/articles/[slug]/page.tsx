@@ -13,7 +13,25 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const { slug } = await props.params;
   const article = getArticle(slug);
   if (!article) return {};
-  return { title: `${article.title} — one.ai.in`, description: article.excerpt };
+  const url = `${SITE_URL}/articles/${article.slug}`;
+  return {
+    title: `${article.title} — one.ai.in`,
+    description: article.excerpt,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt,
+      type: 'article',
+      url,
+      images: [{ url: '/og-default.png', width: 1200, height: 630, alt: article.title }],
+      publishedTime: article.date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.excerpt,
+      images: ['/og-default.png'],
+    },
+  };
 }
 
 export default async function ArticlePage(props: { params: Promise<{ slug: string }> }) {

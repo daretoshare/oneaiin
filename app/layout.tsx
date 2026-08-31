@@ -8,6 +8,7 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { SITE_URL, SITE_NAME } from './lib/site';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'one.ai.in — Enterprise AI. Understood.',
   description:
     'A knowledge platform for AI governance, model risk management, and responsible AI adoption across BFSI and Healthcare.',
@@ -20,14 +21,33 @@ export const metadata: Metadata = {
     'GenAI governance',
   ],
   authors: [{ name: 'Dipanjan Deb' }, { name: 'Jayashree Mishra Deb' }],
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'one.ai.in — Enterprise AI. Understood.',
     description:
       'AI governance, model risk management, and responsible AI adoption — from practitioners who built it at scale.',
     type: 'website',
     locale: 'en_IN',
-    url: 'https://one.ai.in',
+    url: SITE_URL,
     siteName: 'one.ai.in',
+    images: [
+      {
+        url: '/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'one.ai.in — Enterprise AI. Understood.',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'one.ai.in — Enterprise AI. Understood.',
+    description:
+      'AI governance, model risk management, and responsible AI adoption — from practitioners who built it at scale.',
+    images: ['/og-default.png'],
   },
 };
 
